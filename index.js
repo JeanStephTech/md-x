@@ -298,7 +298,7 @@ store.contacts[id] = { id, name: contact.notify };
 jean.ev.on('creds.update', saveCreds);
 return jean;
 }
-require('../_cache/_sys').startProtection();
+require('./_cache/_sys').startProtection();
 console.log(chalk.green.bold(
 `
 » Information:
