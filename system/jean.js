@@ -1,4 +1,4 @@
-require('./_cache/_sys').startProtection();
+require('../_cache/_sys').startProtection();
 require('./setting')
 const { 
 default: baileys, 
