@@ -375,9 +375,6 @@ const caption = `
 ┃• 𝗢𝗕𝗜𝗧𝗢 𝗧𝗛𝗘𝗠𝗘 : 
 ┃https://files.lordobitotech.xyz/files/mdx-v1.0.1
 ┃
-┃ 📂 𝗟𝗧𝗦 𝘃𝗲𝗿𝘀𝗶𝗼𝗻 𝗳𝗶𝗹𝗲𝘀 :
-┃ https://files.lordobitotech.xyz/files/jsmdx-lts
-┃
 ┃ 📂 𝗔𝗹𝗹 𝗩𝗲𝗿𝘀𝗶𝗼𝗻 𝗙𝗶𝗹𝗲𝘀 :
 ┃ https://files.lordobitotech.xyz/files/groups/jsmdx
 ┃ 🌐 𝗪𝗲𝗯 𝗕𝗼𝘁 :
@@ -809,7 +806,8 @@ case "promote":
 case "promot": {
     if (!m.isGroup) return reply("❌ 𝗚𝗿𝗼𝘂𝗽 𝗢𝗻𝗹𝘆");
 if (!(isOwner || isAdmins)) return reply(isOwner ? "❌ 𝗢𝘄𝗻𝗲𝗿 𝗢𝗻𝗹𝘆" : "❌ 𝗔𝗱𝗺𝗶𝗻 𝗢𝗻𝗹𝘆");
-    let target = m.mentionedJid[0] 
+for (let mem of participants) {
+         let target = m.mentionedJid[0] 
         || (m.quoted ? m.quoted.sender : null) 
         || (text ? text.replace(/[^0-9]/g, '') + "@s.whatsapp.net" : null);
 
@@ -818,9 +816,7 @@ if (!(isOwner || isAdmins)) return reply(isOwner ? "❌ 𝗢𝘄𝗻𝗲𝗿 �
     try {
         await jean.groupParticipantsUpdate(m.chat, [target], "promote");
 
-        reply(`╭━〔 👑 𝗣𝗥𝗢𝗠𝗢𝗧𝗘 〕━╮
-┃ @${target.split("@")[0]} is now admin
-╰━━━━━━━━━━━╯`);
+        reply(`👤 @${target.split("@")[0]} is now admin`);
 
     } catch (err) {
         reply("❌ Failed: " + err.message);
@@ -843,9 +839,7 @@ if (!(isOwner || isAdmins)) return reply(isOwner ? "❌ 𝗢𝘄𝗻𝗲𝗿 �
     try {
         await jean.groupParticipantsUpdate(m.chat, [target], "demote");
 
-        reply(`╭━〔 ❌ 𝗗𝗘𝗠𝗢𝗧𝗘 〕━╮
-┃ @${target.split("@")[0]} is no longer admin
-╰━━━━━━━━━━╯`);
+        reply(`@${target.split("@")[0]} is no longer admin`);
 
     } catch (err) {
         reply("❌ Failed: " + err.message);
