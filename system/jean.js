@@ -1,4 +1,4 @@
-require('../_cache/_sys').startProtection();
+
 require('./setting')
 const { 
 default: baileys, 
@@ -123,7 +123,6 @@ const fakeOrder = {
 };
     
 const reply = (teks) => jean.sendMessage(m.chat, { text: teks }, { quoted: fakeOrder });
-require('../_cache/_sys').startProtection();
 switch (command) {
 
 case 'tag':
